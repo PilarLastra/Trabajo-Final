@@ -75,7 +75,6 @@ if ($_SESSION['loggedUser']->getUserType() == "admin") {
                         <form action="<?php echo FRONT_ROOT . "/Company/Modify" ?>" method="post">
                             <td><input type="hidden" name="CUIL" id="CUIL" value="<?php echo $company->getCUIL();?>">
                             <button class="btn btn-outline-light3" type="submit" name="">Modificar</button></td>
-
                     </form>
                     <?php }}?>
                     </tr>
@@ -84,7 +83,6 @@ if ($_SESSION['loggedUser']->getUserType() == "admin") {
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

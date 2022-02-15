@@ -49,7 +49,7 @@ include('nav.php');
                                     <input type="text" class="form-control" id="floatingInput" name="web_Page" placeholder="name.com.ar">
                                     <label for="floatingInput">Pagina Web</label>
                                 </div>
-                                <div class="form-floating">
+                                <div class="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingInput" name="contactNumber" placeholder="1234567">
                                     <label for="floatingInput">Numero de contacto</label>
                                 </div>
@@ -95,14 +95,46 @@ include('nav.php');
 
 
 
-                    <div class="form-floating">
-                        <input type="submit" id="margen-boton" class="btn btn-outline-light" value="Agregar">
-                    </div>
-
-            </div class="alert alert-<?php echo $alert->getType() ?>">
-            <?php echo $alert->getMessage(); ?>
-            <div>
-                </form>
+                    <div class="col-15">  
+                                                            <div class="modal fade" id="add" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="add"></h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                Esta seguro que desea agregar esta compañia?
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button class="btn btn-primary" data-bs-target="#add" data-bs-toggle="modal">Si</button>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="modal fade" id="add" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="add"></h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                Compañia añadida con exito
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <a class="btn btn-outline-light" data-bs-toggle="modal" type="submit" href="#add" role="button">Agregar</a>
+             
+                                                             </div>
+                    
+                    </form>
+                
             </div>
         </div>
 
@@ -116,6 +148,7 @@ include('nav.php');
 
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

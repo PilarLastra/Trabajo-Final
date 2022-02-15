@@ -25,8 +25,48 @@ $jobOfferDAO = new JobOfferDAO();
     <title>URLdin</title>
 </head>
 
+<script type="text/javascript">
+    function ConfirmDelete(){
+        var respuesta = confirm ("");
+        if (respuesta == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+
 <body style="background-color:#7B68EE">
     <main>
+    <div class="">
+            <div class="row">
+                <div class="col">
+                    <div class="caja-filtros">
+                        <form action="<?php echo  FRONT_ROOT . "/JobApplication/SearchByParameters " ?>" method="post">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+
+                                        <select class="form-select" id="puesto" name="puesto" aria-label="Default select example">
+                                            <option selected>Puesto</option>
+                                            <?php foreach ($jobPositionList as $jobPosition) { ?>
+                                                <option value="<?php echo $jobPosition->getDescription() ?>"><?php echo $jobPosition->getDescription() ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <select class="form-select" id="carrera" name="carrera" aria-label="Default select example">
+                                            <option selected>Carrera</option>
+                                            <?php foreach ($careerList as $career) { ?>
+                                                <option value="<?php echo $career->getDescription() ?>"><?php echo $career->getDescription() ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <input type="submit" class="btn btn-outline-light" value="Buscar">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
         <div class="">
             <div class="row">
                 <div class="col">
@@ -43,7 +83,6 @@ $jobOfferDAO = new JobOfferDAO();
                                     <th scope="col">Sueldo</th>
                                     <th scope="col">Idioma Principal</th>
                                     <th scope="col">Idioma Secundario</th>
-                                    <th scope="col">Enviar CV</th>
                                     <th scope="col">Aplicar</th>
                                 </tr>
                             </thead>
@@ -57,25 +96,15 @@ $jobOfferDAO = new JobOfferDAO();
                                         <td><?php echo $jobOffer->getTurn() ?></td>
                                         <td><?php echo $jobOffer->getSalary() ?></td>
                                         <td><?php echo $jobOffer->getLang() ?></td>
-                                        <td><?php echo $jobOffer->getPrefLang() ?></td>
-
+                                        <td><?php echo $jobOffer->getPrefLang() ?></td> 
+                                    <form action="<?php echo  FRONT_ROOT . "/JobApplication/Add " ?>" method="post">
                                         <td>
-                                            <!--<form action ="<?php //echo FRONT_ROOT."/Archivo/UploadPdf"
-                                                                ?>" method="POST"  enctype="multipart/form-data">
-                                               <input type="file" class="" name ="fichero">-->
-                                            <input class="btn btn-light" type="submit" value="Subir">
-
-
-                                            <!--</form>-->
-                                        </td>
-
-                                        <form action="<?php echo  FRONT_ROOT . "/JobApplication/Add " ?>" method="post">
-                                            <td>
                                                 <input type="hidden" name="studentId" value="<?php echo $_SESSION["loggedUser"]->getStudentId(); ?>">
                                                 <input type="hidden" name="jobOfferId" value="<?php echo $jobOffer->getJobOfferId(); ?>">
-                                                <input class="btn btn-light" name="" type="submit" value="Aplicar">
-                                            </td>
-                                        </form>
+                                                <input class="btn btn-light"  name="" type="submit" onclick="return ConfirmDelete()" value="Aplicar ">
+                                        </td>
+                                    </form>
+                                   
 
                                 </tr>
                             <?php } ?>
@@ -114,7 +143,6 @@ $jobOfferDAO = new JobOfferDAO();
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

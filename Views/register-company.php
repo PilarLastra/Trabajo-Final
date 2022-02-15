@@ -16,18 +16,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URLdin</title>
 </head>
-<<body style="background-color:#7B68EE">
+
+<script type="text/javascript">
+    function ConfirmAccept(){
+        var respuesta = confirm ("Esta seguro que desea enviar este archivo?");
+        if (respuesta == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+
+<body style="background-color:#7B68EE">
     <main>
         <div class="container">
             <div id="cuadrado">
-
                 <form action="<?php echo  FRONT_ROOT . "/Company/Add " ?>" method="post">
-
                     <div>
                         <h1>Nueva Empresa</h1>
                         <h2 id="linea"></h2>
                     </div>
-
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -50,7 +60,6 @@
                                 </div>
 
                             </div>
-
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" name="password" placeholder="nasdew789">
@@ -65,9 +74,7 @@
                                     <input type="textarea" class="form-control" id="floatingInput" name="description" placeholder="...">
                                     <label for="floatingInput">Descripcion</label>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="container">
@@ -83,38 +90,15 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="form-floating">
-                        <input type="submit" id="margen-boton" class="btn btn-outline-light" value="Agregar">
+                         <input class="btn btn-light"  name="" type="submit" onclick="return ConfirmAccept()" value="Agregar " >
                         </form>
                         <form action="<?php echo FRONT_ROOT . "/Home/Index" ?>">
                             <input type="submit" id="botones" class="btn btn-outline-light" value="Volver">
                         </form>
-                    </div>
-                    
-                    <div >
-                        
-                    </div>
-
-            </div class="alert alert-<?php echo $alert->getType() ?>">
-            <?php echo $alert->getMessage(); ?>
-            <div>
-               
+                    </div>                        
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
     </main>
     </body>
-
 </html>

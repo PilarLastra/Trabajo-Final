@@ -150,7 +150,7 @@ class JobOfferController
         $careerList = $this->careerDAO->GetAll();
         $jobPositionList = $this->jobPositionDAO->GetAll();
         require_once(VIEWS_PATH . "/validate-session.php");
-       require_once(VIEWS_PATH . "/jobOfferCompany-list.php");
+     //  require_once(VIEWS_PATH . "/jobOfferCompany-list.php");
     }
 
 

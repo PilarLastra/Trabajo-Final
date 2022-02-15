@@ -40,11 +40,6 @@ class AdminController
         require_once(VIEWS_PATH . "/add-admin.php");
     }
 
-    public function AddImg()
-    {
-        
-
-}
 
     public function ShowAdminListView()
     {

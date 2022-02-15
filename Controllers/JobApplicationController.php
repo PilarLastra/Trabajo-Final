@@ -74,8 +74,21 @@ class JobApplicationController
         $jobApplication->setJobOfferId($jobOfferId);
         $jobApplication->setStudentId($studentId);
         $this->jobApplicationDAO->Add($jobApplication);
+        $jobApplicationList = $this->jobApplicationDAO->GetAll();
+        $jobOfferList = $this->jobOfferDAO->GetAll();
+        $companyList = $this->companyDAO->GetAll();
+        $careerList = $this->careerDAO->GetAll();
+        $jobPositionList = $this->jobPositionDAO->GetAll();
             
-        $this->ShowListView();
+        require_once(VIEWS_PATH . "/validate-session.php");
+        require_once(VIEWS_PATH . "/add-cvApplication.php");
+    }
+
+    public function Delete($jobApplicationId)
+    {
+        $this->jobApplicationDAO->Remove($jobApplicationId);
+        require_once(VIEWS_PATH . "/validate-session.php");
+        require_once(VIEWS_PATH . "/student-home.php");
     }
 
     public function End($jobApplicationId)

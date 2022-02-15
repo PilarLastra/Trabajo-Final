@@ -29,6 +29,17 @@ $jobApplicationDAO = new JobPositionDAO();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URLdin</title>
 </head>
+<script type="text/javascript">
+    function ConfirmDelete(){
+        var respuesta = confirm ("Esta seguro que desea eliminar esta propuesta?");
+        if (respuesta == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
 
 <body style="background-color:#7B68EE">
     <main>
@@ -51,6 +62,7 @@ $jobApplicationDAO = new JobPositionDAO();
                             <th scope="col">Empresa</th>
                             <th scope="col">Puesto</th>
                             <th scope="col">Carrera</th>
+                            <th scope="col">CV</th>
                             <th scope="col">Eliminar propuesta</th>
 
                         </tr>
@@ -65,9 +77,11 @@ $jobApplicationDAO = new JobPositionDAO();
                                                     <td><?php echo  $jobOfferDAO->MatchByCompanyId($jobOffer->getCompanyId()) ?></td>
                                                     <td><?php echo $jobOffer->getJobPositionId() ?></td>
                                                     <td><?php echo $jobOffer->getCareerId() ?></td>
+                                                    <td><?php //aca va el pdf para descargar del cv del alumno?></td>
                                                     <form action="<?php echo  FRONT_ROOT . "/JobApplication/End " ?>" method="post"><td>
-                                                <input type="hidden" name="jobApplicationId" value="<?php echo $jobApplication->getJobApplicationId(); ?>">
-                                              <input class="btn btn-outline-light3"  name="" type="submit" value="Eliminar " >   
+                                                    <input type="hidden" name="jobApplicationId" value="<?php echo $jobApplication->getJobApplicationId(); ?>">
+                                                    <input class="btn btn-outline-light3"  name="" type="submit" onclick="return ConfirmDelete()" value="Eliminar " >  
+                                              
                                               </td>  </form>
                                                     <?php }
                                                     }
@@ -76,7 +90,8 @@ $jobApplicationDAO = new JobPositionDAO();
                         </tr>
                         <form action="<?php echo  FRONT_ROOT . "/Admin/printPdf " ?>" method="post"><td>
                                               <input class="btn btn-outline-light3"  name="" type="submit" value="PDF " >   
-                                              </td>  </form>
+                                              </td>  
+                                            </form>
 
 
                     </tbody>

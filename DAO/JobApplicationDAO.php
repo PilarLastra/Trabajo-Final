@@ -60,6 +60,33 @@ class JobApplicationDAO implements IJobApplicationDAO
         }
     }
 
+    public function latestId (){
+        try {
+            $query = "SELECT job_Application_Id FROM jobApplication ORDER BY job_Application_Id DESC LIMIT 1";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            if ($resultSet != null) {
+               $jobApplicationId = $resultSet;
+               return $jobApplicationId;
+                }
+        } catch (Exception $ex) {
+
+            throw $ex;
+        }
+    }
+
+    public function updateCvId ($cvId, $jobApplicationId){
+        try{
+        $query = "UPDATE $this->tableName SET cvId = $cvId WHERE job_Application_Id = $jobApplicationId";
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->Execute($query);
+        }
+        catch (Exception $ex){
+            throw $ex;
+        }
+    }
+
     public function MatchByName($name)
     {
         try {
@@ -216,6 +243,7 @@ class JobApplicationDAO implements IJobApplicationDAO
             foreach ($resultSet as $row) {
                 mail($row['email'],"Postulacion","Su postulacion ha sido declinada", "From: maticapo27@gmail.com");
                 $this->Remove($jobApplicationId);
+                
                 }
         }
             

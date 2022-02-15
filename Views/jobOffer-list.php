@@ -25,6 +25,18 @@ $jobOfferDAO = new JobOfferDAO();
     <title>URLdin</title>
 </head>
 
+<script type="text/javascript">
+    function ConfirmDelete(){
+        var respuesta = confirm ("Esta seguro que desea eliminar esta propuesta? (El cambio sera permanente)");
+        if (respuesta == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+
 <body style="background-color:#7B68EE">
     <main>
         <div class="">
@@ -96,7 +108,7 @@ $jobOfferDAO = new JobOfferDAO();
                                         if ($_SESSION['loggedUser']->getUserType() == "admin") { ?>
                                             <form action="<?php echo FRONT_ROOT . "/JobOffer/Remove" ?>" method="post">
                                                 <td><input type="hidden" name="job_Offer_Id" id="job_Offer_Id" value="<?php echo $jobOffer->getJobOfferId(); ?>">
-                                                    <button class="btn btn-outline-light3" type="submit" name="">Eliminar</button>
+                                                <input class="btn btn-outline-light3"  name="" type="submit" onclick="return ConfirmDelete()" value="Eliminar " >
                                                 </td>
 
                                             </form>
