@@ -1,0 +1,65 @@
+/*FormControls*/
+
+.form-control,
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: #f8f8ff;
+  width: 500px;
+
+  color: #f8f8ff;
+}
+
+.form-range {
+  width: 650px;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+  margin-top: 30px;
+  position: relative;
+  right: 205px;
+}
+.btn-outline-light {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+  width: 250px;
+}
+
+.btn-outline-light2 {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  width: 70px;
+}
+
+.btn-outline-light3 {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+  width: 90px;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375 rem 2.25 rem 0.375 rem 0.75 rem;
+
+  margin-bottom: 20px;
+
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #7b68ee;
+
+  background-repeat: no-repeat;
+  background-position: right 0.75 rem center;
+  background-size: 16 px 12 px;
+  border: 1 px solid #ced4da;
+  border-radius: 0.25 rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

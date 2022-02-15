@@ -1,0 +1,126 @@
+.fondo {
+  background-image: url("/Trabajo-Final/Views/assets/img/pasilloBlur.jpg");
+  background-position-x: center;
+
+  background-size: cover;
+}
+
+#cuadrado {
+  width: 450px;
+  height: 700px;
+  background: #f8f8ff;
+  border: 1px solid #f8f8ff49;
+  position: relative;
+  top: 60px;
+}
+
+p {
+  font: 180% sans-serif;
+  position: relative;
+  left: 120px;
+  top: 60px;
+}
+
+#linea {
+  width: 400px;
+  height: 2px;
+  background: #7b68ee;
+  position: relative;
+  left: 10px;
+  top: 50px;
+}
+
+#cuadradoSoloBordes {
+  width: 400px;
+  height: 70px;
+  border: 2px solid #7b68ee;
+
+  position: relative;
+  top: 100px;
+}
+
+#email {
+  font: 105% sans-serif;
+  position: relative;
+  left: 10px;
+  top: 100px;
+}
+
+#emailadress {
+  font: 105% sans-serif;
+  width: 400px;
+  height: 70px;
+  border: 2px solid #7b68ee;
+  margin-bottom: 20px;
+  position: relative;
+  top: 40px;
+}
+
+.buttonFlecha {
+  background: url("/Trabajo-Final/Views/assets/img/Boton Violetaa.png") center;
+  background-size: 100% 100%;
+  border: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-color: #f8f8ff;
+  background-color: #f8f8ff;
+  margin-left: 150px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 10%;
+  height: 10%;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.buttonCampus {
+  background: url("/Trabajo-Final/Views/assets/img/campusBoton.png") center;
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 38px;
+  position: relative;
+  left: 20px;
+  top: 70px;
+}
+
+.buttonIg {
+  background: url("/Trabajo-Final/Views/assets/img/igBoton.png") center;
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 38px;
+  position: relative;
+  left: 150px;
+  top: 26px;
+}
+
+.buttonTwitter {
+  background: url("/Trabajo-Final/Views/assets/img/twitterBoton.png") center;
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 38px;
+  position: relative;
+  left: 280px;
+  bottom: 19px;
+}

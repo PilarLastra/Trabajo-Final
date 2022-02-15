@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+
+#cuadrado {
+  border: 1px solid #f8f8ff;
+  width: 800px;
+  height: 1000px;
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  display: flex;
+  text-align: center;
+
+  justify-content: center;
+}
+
+.searchBar,
+.searchBar:focus {
+  background-color: transparent;
+  box-shadow: none;
+  border: 1px solid #f8f8ff;
+
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+
+.cuadrado-de-opciones,
+.cuadrado-de-opciones:focus {
+  box-shadow: none;
+
+  border: 1px solid #f8f8ff;
+  width: 200px;
+  margin: none;
+  padding: 10px;
+
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+.form-select {
+  background: transparent;
+  margin-top: 40px;
+
+  padding: 20px;
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+
+#linea {
+  width: 700px;
+  height: 1px;
+  background: #f8f8ff;
+  margin-top: 40px;
+  margin-right: 320px;
+}
+
+.h1 {
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+
+#margenes {
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 0px;
+  margin-top: 60px;
+
+  width: 200px;
+}
+
+/*lista de empresas*/
+
+.tabla {
+  margin-top: 20px;
+  width: 1500px;
+  text-align: center;
+
+  font: 100% sans-serif;
+  color: #f8f8ff;
+}
+
+.search {
+  width: 0px;
+
+  margin-top: 30px;
+  margin-left: 300px;
+}
+
+h2 {
+  font: 200% sans-serif;
+  color: #f8f8ff;
+
+  text-align: left;
+  margin-left: 320px;
+}
+
+#tamaño {
+  width: 100px;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: #f8f8ff;
+  width: 300px;
+  color: #f8f8ff;
+  margin-top: 80px;
+}
+
+#margen-boton {
+  margin-top: 60px;
+}
+
+#boton {
+  height: 40px;
+  margin-top: 80px;
+}
+
+#color-letra {
+  color: #000000;
+  margin-top: 20px;
+}
+#boton-agregar {
+  margin-top: 40px;
+  margin-right: 400px;
+}
+
+/*Registro*/
+
+#registro {
+  margin-left: 425px;
+}
+#botones {
+  margin-top: 20px;
+}
