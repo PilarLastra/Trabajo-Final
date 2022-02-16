@@ -4,6 +4,7 @@ namespace Controllers;
 
 use DAO\JobApplicationDAO as JobApplicationDAO;
 use Classes\JobApplication as JobApplication;
+use DAO\ArchivoDAO;
 use DAO\CareerDAO as CareerDAO;
 use DAO\CompanyDAO as CompanyDAO;
 use DAO\JobOfferDAO AS JobOfferDAO ;
@@ -16,6 +17,7 @@ class JobApplicationController
     private $jobPositionDAO;
     private $careerDAO;
     private $companyDAO; 
+    private $archivoDAO;
 
     public function __construct()
     {
@@ -24,6 +26,7 @@ class JobApplicationController
         $this->jobPositionDAO = new JobPositionDAO();
         $this->companyDAO = new CompanyDAO();
         $this->careerDAO = new CareerDAO();
+        $this->archivoDAO = new ArchivoDAO();
     }
 
     public function ShowAddView()
@@ -101,6 +104,27 @@ class JobApplicationController
         $jobApplicationList = $this ->jobApplicationDAO->GetAll();
         require_once(VIEWS_PATH . "/validate-session.php");
         require_once(VIEWS_PATH . "/applicationlist-admin.php");
+    }
+
+    public function ShowOfferView($jobOfferId)
+    {
+        $jobApplicationList = $this->jobApplicationDAO->GetAll();
+        $jobOfferList = $this->jobOfferDAO->GetAll();
+        $companyList = $this->companyDAO->GetAll();
+        $careerList = $this->careerDAO->GetAll();
+        $jobPositionList = $this->jobPositionDAO->GetAll();
+        require_once(VIEWS_PATH . "/validate-session.php");
+        require_once(VIEWS_PATH . "/complete-JobOffer.php");
+    }
+
+    public function DownloadCV ($cvId){
+        $jobApplicationList = $this->jobApplicationDAO->GetAll();
+        $jobOfferList = $this->jobOfferDAO->GetAll();
+        $companyList = $this->companyDAO->GetAll();
+        $careerList = $this->careerDAO->GetAll();
+        $jobPositionList = $this->jobPositionDAO->GetAll();
+        $pdf=$this->archivoDAO->DownloadCV($cvId);
+        
     }
 
    

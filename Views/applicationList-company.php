@@ -1,5 +1,6 @@
 <?php
 
+use DAO\ArchivoDAO;
 use DAO\JobOfferDAO;
 use DAO\JobPositionDAO;
 
@@ -16,6 +17,7 @@ else{
 
 $jobOfferDAO = new JobOfferDAO();
 $jobApplicationDAO = new JobPositionDAO();
+$archivoDAO = new ArchivoDAO();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +54,7 @@ $jobApplicationDAO = new JobPositionDAO();
                             <th scope="col">Empresa</th>
                             <th scope="col">Puesto</th>
                             <th scope="col">Carrera</th>
-                            <th scope="col">Descargar CV</th>
+                            <th scope="col">CV</th>
 
                         </tr>
                     </thead>
@@ -68,13 +70,25 @@ $jobApplicationDAO = new JobPositionDAO();
                                                     <td><?php echo  $jobOfferDAO->MatchByCompanyId($jobOffer->getCompanyId()) ?></td>
                                                     <td><?php echo $jobOffer->getJobPositionId() ?></td>
                                                     <td><?php echo $jobOffer->getCareerId() ?></td>
-                                                    <form action="<?php echo FRONT_ROOT . "/Student/ViewProfile" ?>" method="post">
-                                                            <td><input type="hidden" name="name" id="" value="<?php echo $this->jobApplicationDAO->MatchByStudId($jobApplication->getStudentId()) ?>">
-                                                                <button class="btn btn-outline-light3" type="submit" name="">Ver perfil</button>
-                                                            </td>
 
-                                                        </form>
-                                                    <?php }
+                                                    <td>
+                                                            <?php 
+                                                                if($jobApplication->getCvId() != 5){
+                                                            $cv  = $this->archivoDAO->DownloadCV($jobApplication->getCvId());
+                                                                    $rutaDescarga = "../upload/".$cv[0]['ruta'];
+                                                                    $rutaDescarga = str_replace(' ', '', $rutaDescarga);
+                                                                     $nombreArchivo = $cv[0]['name'];
+                                                                    
+                                                            
+                                                            ?>
+                                                    <a href="<?php echo $rutaDescarga;?>" download="<?php echo $nombreArchivo;?>" class="btn btn-">CV</a></td>
+
+                                               
+                                                   
+                                                    <?php }else{
+                                                        ?>No presento
+                                                        <?php
+                                                    }}
                                                     }
                                                 }
                         }?>

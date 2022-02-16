@@ -49,7 +49,7 @@ class JobOfferDAO implements IJobOfferDAO
         try {
 
             $query = "SELECT jobOffer.job_Offer_Id, company.company_Id, career.description as carDes, jobOffer.career_Id, jobPosition.description as jobPos, jobOffer.salary, jobOffer.description, jobOffer.turn, jobOffer.experience,
-             jobOffer.language, jobOffer.preference_language, jobOffer.place FROM $this->tableName 
+             jobOffer.language, jobOffer.preference_language, jobOffer.place, jobOffer.imagen_Id FROM $this->tableName 
              JOIN company ON jobOffer.company_Id = company.company_Id
              JOIN jobPosition ON jobOffer.job_Position_Id = jobPosition.job_Position_Id
              JOIN career ON jobOffer.career_Id = career.id";
@@ -71,6 +71,7 @@ class JobOfferDAO implements IJobOfferDAO
                 $jobOffer->setLang($row["language"]);
                 $jobOffer->setPrefLang($row["preference_language"]);
                 $jobOffer->setPlace($row["place"]);
+                $jobOffer->setImagenId($row["imagen_Id"]);
 
                 array_push($jobOfferList, $jobOffer);
             }
@@ -450,6 +451,32 @@ class JobOfferDAO implements IJobOfferDAO
         }
     }
 
+    public function latestId()
+    {
+        try {
+            $query = "SELECT job_Offer_Id FROM jobOffer ORDER BY job_Offer_Id DESC LIMIT 1";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            if ($resultSet != null) {
+                $jobOfferId = $resultSet;
+                return $jobOfferId;
+            }
+        } catch (Exception $ex) {
 
+            throw $ex;
+        }
+    }
+
+    public function updateImagenId($imagenId, $jobOfferId)
+    {
+        try {
+            $query = "UPDATE $this->tableName SET imagen_Id = $imagenId WHERE job_Offer_Id = $jobOfferId";
+            $this->connection = Connection::GetInstance();
+
+            $this->connection->Execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
 
 }

@@ -17,6 +17,7 @@ class JobOffer{
     private $lang;
     private $prefLang;
     private $place;
+    private $imagenId;
 
 
     /**
@@ -219,4 +220,23 @@ class JobOffer{
 
         return $this;
     }
+
+/**
+     * Get the value of careerId
+     */
+    public function getImagenId()
+    {
+        return $this->imagenId;
+    }
+
+    /**
+     * Set the value of careerId
+     */
+    public function setImagenId($imagenId): self
+    {
+        $this->imagenId = $imagenId;
+
+        return $this;
+    }
+
 }

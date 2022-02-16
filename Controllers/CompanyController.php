@@ -5,6 +5,7 @@ namespace Controllers;
 use Classes\Alert;
 use DAO\CompanyDAO as CompanyDAO;
 use Classes\Enterprise\Company as Company;
+use DAO\ArchivoDAO;
 use DAO\JobApplicationDAO;
 use DAO\JobOfferDAO;
 use DAO\StudentDAO;
@@ -16,6 +17,7 @@ class CompanyController
     private $studentDAO;
     private $jobOfferDAO;
     private $jobApplicationDAO;
+    private $archivoDAO;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class CompanyController
       $this->studentDAO = new StudentDAO();
       $this->jobOfferDAO = new JobOfferDAO();
       $this->jobApplicationDAO = new JobApplicationDAO();
+      $this->archivoDAO = new ArchivoDAO();
 
     }
 

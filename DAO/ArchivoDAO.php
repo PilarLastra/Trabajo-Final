@@ -29,6 +29,24 @@ class ArchivoDAO {
             $this->connection->ExecuteNonQuery($query, $parameters);
         }
     }
+
+    public function DownloadCv($cvId){
+        try{
+
+        $query ="SELECT * from archivos where idArchivo = $cvId";
+
+        $this->connection = Connection::GetInstance();
+
+        $resultSet = $this->connection->Execute($query);
+        
+        if($resultSet != null){
+            return $resultSet;
+                 }
+            }
+    catch(Exception $ex) {
+        throw $ex;
+    }
+}
   
 
     public function latestId (){

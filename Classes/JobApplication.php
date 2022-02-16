@@ -9,9 +9,9 @@ class JobApplication{
     private $jobApplicationId;
     private $jobOfferId;
     private $studentId;
+    private $cvId;
     
-
-
+    
     /**
      * Get the value of jobApplicationId
      */
@@ -62,6 +62,18 @@ class JobApplication{
     public function setStudentId($studentId): self
     {
         $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    public function getCvId()
+    {
+        return $this->cvId;
+    }
+
+    public function setCvId($cvId): self
+    {
+        $this->cvId = $cvId;
 
         return $this;
     }

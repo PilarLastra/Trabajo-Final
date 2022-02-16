@@ -7,6 +7,7 @@ use DAO\CompanyDAO as CompanyDAO;
 use DAO\StudentDAO as StudentDAO;
 use Classes\Users\Admin as Admin;
 use Classes\Company as Company;
+use DAO\ArchivoDAO;
 use DAO\JobApplicationDAO;
 use DAO\JobOfferDAO;
 
@@ -17,6 +18,7 @@ class AdminController
     private $studentDAO;
     private $jobOfferDAO;
     private $jobApplicationDAO;
+    private $archivoDAO;
 
     public function __construct()
     {
@@ -25,6 +27,7 @@ class AdminController
         $this->studentDAO = new StudentDAO();
         $this->jobOfferDAO = new JobOfferDAO();
         $this->jobApplicationDAO = new JobApplicationDAO();
+        $this->archivoDAO = new ArchivoDAO();
     }
 
 

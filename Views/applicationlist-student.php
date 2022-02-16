@@ -48,7 +48,7 @@ $jobApplicationDAO = new JobPositionDAO();
                             <th scope="col">Empresa</th>
                             <th scope="col">Puesto</th>
                             <th scope="col">Carrera</th>
-                            <th scope="col">Descargar alumnos</th>
+                            <th scope="col">CV</th>
 
                         </tr>
                     </thead>
