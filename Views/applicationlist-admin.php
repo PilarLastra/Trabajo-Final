@@ -1,5 +1,6 @@
 <?php
 
+use DAO\ArchivoDAO;
 use DAO\JobOfferDAO;
 use DAO\JobPositionDAO;
 
@@ -16,6 +17,7 @@ else{
 
 $jobOfferDAO = new JobOfferDAO();
 $jobApplicationDAO = new JobPositionDAO();
+$archivoDAO = new ArchivoDAO();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +79,24 @@ $jobApplicationDAO = new JobPositionDAO();
                                                     <td><?php echo  $jobOfferDAO->MatchByCompanyId($jobOffer->getCompanyId()) ?></td>
                                                     <td><?php echo $jobOffer->getJobPositionId() ?></td>
                                                     <td><?php echo $jobOffer->getCareerId() ?></td>
-                                                    <td><?php //aca va el pdf para descargar del cv del alumno?></td>
+                                                    <td>
+                                                            <?php 
+                                                                if($jobApplication->getCvId() != 5){
+                                                            $cv  = $this->archivoDAO->DownloadCV($jobApplication->getCvId());
+                                                                    $rutaDescarga = "../upload/".$cv[0]['ruta'];
+                                                                    $rutaDescarga = str_replace(' ', '', $rutaDescarga);
+                                                                     $nombreArchivo = $cv[0]['name'];
+                                                                    
+                                                            
+                                                            ?>
+                                                    <a href="<?php echo $rutaDescarga;?>" download="<?php echo $nombreArchivo;?>" class="btn btn-">CV</a></td>
+
+                                               
+                                                   
+                                                    <?php }else{
+                                                        ?>No presento
+                                                        <?php
+                                                    }?>
                                                     <form action="<?php echo  FRONT_ROOT . "/JobApplication/End " ?>" method="post"><td>
                                                     <input type="hidden" name="jobApplicationId" value="<?php echo $jobApplication->getJobApplicationId(); ?>">
                                                     <input class="btn btn-outline-light3"  name="" type="submit" onclick="return ConfirmDelete()" value="Eliminar " >  

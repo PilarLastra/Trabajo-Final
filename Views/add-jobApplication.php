@@ -71,19 +71,12 @@ $jobOfferDAO = new JobOfferDAO();
             <div class="row">
                 <div class="col">
                     <div class="tabla">
-
                         <table class="table table-striped table-hover">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col">Empresa</th>
                                     <th scope="col">Puesto</th>
                                     <th scope="col">Carrera</th>
-                                    <th scope="col">Experiencia</th>
-                                    <th scope="col">Jornada</th>
-                                    <th scope="col">Sueldo</th>
-                                    <th scope="col">Idioma Principal</th>
-                                    <th scope="col">Idioma Secundario</th>
-                                    <th scope="col">Aplicar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,18 +85,13 @@ $jobOfferDAO = new JobOfferDAO();
                                         <th scope="row"><a href="" class="nav-link text-dark"><?php echo $jobOfferDAO->MatchByCompanyId($jobOffer->getCompanyId()) ?></th>
                                         <td><?php echo $jobOffer->getJobPositionId() ?></td>
                                         <td><?php echo $jobOffer->getCareerId() ?></td>
-                                        <td><?php echo $jobOffer->getExp() ?></td>
-                                        <td><?php echo $jobOffer->getTurn() ?></td>
-                                        <td><?php echo $jobOffer->getSalary() ?></td>
-                                        <td><?php echo $jobOffer->getLang() ?></td>
-                                        <td><?php echo $jobOffer->getPrefLang() ?></td> 
-                                    <form action="<?php echo  FRONT_ROOT . "/JobApplication/Add " ?>" method="post">
-                                        <td>
-                                                <input type="hidden" name="studentId" value="<?php echo $_SESSION["loggedUser"]->getStudentId(); ?>">
+                                        <form action="<?php echo  FRONT_ROOT . "/JobApplication/ShowOfferView " ?>" method="post">
+                                            <td>
+
                                                 <input type="hidden" name="jobOfferId" value="<?php echo $jobOffer->getJobOfferId(); ?>">
-                                                <input class="btn btn-light"  name="" type="submit" onclick="return ConfirmDelete()" value="Aplicar ">
-                                        </td>
-                                    </form>
+                                                <input class="btn btn-light" name="" type="submit" value="Ver Propuesta">
+                                            </td>
+                                        </form>
                                    
 
                                 </tr>

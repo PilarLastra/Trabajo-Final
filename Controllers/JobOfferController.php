@@ -61,7 +61,7 @@ class JobOfferController
         }
         finally{
     
-            $this->ShowAddView($alert);
+            require_once(VIEWS_PATH . "/add-jobOfferImagen.php");
         }
         
 

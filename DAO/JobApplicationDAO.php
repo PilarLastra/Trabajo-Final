@@ -32,8 +32,6 @@ class JobApplicationDAO implements IJobApplicationDAO
         }
     }
 
-
-
     public function GetAll()
     {
         $jobApplicationList = array();
@@ -50,6 +48,7 @@ class JobApplicationDAO implements IJobApplicationDAO
                 $jobApplication->setJobApplicationId($row["job_Application_Id"]);
                 $jobApplication->setJobOfferId($row["job_Offer_Id"]);
                 $jobApplication->setStudentId($row["student_Id"]);
+                $jobApplication->setCvId($row["cvId"]);
 
                 array_push($jobApplicationList, $jobApplication);
             }
